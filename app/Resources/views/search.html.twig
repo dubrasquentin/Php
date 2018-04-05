@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block header_title %}
+    Recherche
+{% endblock %}
+
+{% block contents %}
+    <img src="{{ img }}" />
+    <div class="row">
+        <h4>{{ nom }}</h4>
+    </div>
+    <div class="row">
+        <button class="btn"><a href="{{ path('product', {'id': Id }) }}">Voir</a></button>
+    </div>
+{% endblock %}

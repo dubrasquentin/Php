@@ -1,0 +1,16 @@
+
+.product img {
+    width:120px;
+}
+
+input {
+    margin:2px;
+}
+
+div.site-heading-small {
+    color:white;
+    font-size:120%;
+    text-align:center;
+    height:180px;
+    padding-top:80px;
+}

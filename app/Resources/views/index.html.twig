@@ -1,0 +1,53 @@
+{% extends 'layout.html.twig' %}
+
+{% block header %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ asset('theme/img/home-bg.jpg') }}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>1, 2, 3... évaluez!</h1>
+          <span class="subheading">Recherchez un produit par code barre</span>
+          <form method="post" action="{{ path('search') }}">
+              {{ form_widget(form.code_barre) }}
+              <input type="submit" class="btn btn-primary" value="Go!" />
+              {{ form_end(form) }}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Mieux notés</h2>
+    </div>
+
+    {% for produit in Best %}
+        <div class="product col-lg-3 p-1">
+            <img src="{{ produit.img }}" /><br />
+            <p>
+                {{ produit.nom }}
+            </p>
+        </div>
+    {% endfor %}
+
+    <div class="col-lg-12">
+        <h2>Consultés récemment</h2>
+    </div>
+
+    {% for produit in Last %}
+    <div class="product col-lg-3 p-1">
+        <img src="{{ produit.img }}" /><br />
+        <p>
+            {{ produit.nom }}
+        </p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

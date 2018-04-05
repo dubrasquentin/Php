@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% block header_title %}
+    Fiche produit "{{ nom }}"
+{% endblock %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-sm-4">
+    <img src="{{ asset('theme/img/nutella.jpg') }}" />
+    </div>
+    <div class="col-sm-8">
+        <h3>{{ nom }}</h3>
+        <h4>{{ code_barre }}</h4>
+        <div class="alert alert-info" role="alert">
+            Note : {{ note.note }}
+        </div>
+
+        <hr />
+        <p>
+            <b>Quantité:</b> {{ quantity }} <br/>
+        </p>
+        <p>
+            <b>Ingrédients:</b>
+            <ul>
+                <li>Sucre</li>
+                <li>Huile de palme</li>
+                <li>noisettes 13%</li>
+                <li>cacao maigre 7,4%</li>
+                <li>lait écrémé en poudre 6,6%</li>
+                <li>lactosérum en poudre</li>
+            </ul>
+        </p>
+        <form method="post" action="">
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </form>
+
+        <div>
+            <h4>Commentaires :</h4>
+            {% for eval in evals %}
+                <div class="alert alert-secondary" role="alert">
+                    {{ eval.commentaire }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
